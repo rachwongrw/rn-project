@@ -1,25 +1,38 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 
 const BoxScreen = () => {
-  return <View style={styles.viewStyle}>
-      <Text style={styles.textStyle}>Child 1</Text>
-      <Text style={styles.textStyle}>Child 2</Text>
-      <Text style={styles.textStyle}>Child 3</Text>
+  return (
+    <View style={styles.viewStyle}>
+      <View style={styles.textOneStyle} />
+      <View style={styles.textTwoStyle} />
+      <View style={styles.textThreeStyle}/>
     </View>
+  )
 }
 
 const styles = StyleSheet.create({
   viewStyle: {
-    borderWidth: 3,
-    borderColor: 'black',
-    flexDirection: "row",
-    height: 200,
-    alignItems: 'flex-start'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 200
   },
-  textStyle: {
-    borderWidth: 3,
-    borderColor: 'red',
+  textOneStyle: {
+    backgroundColor: 'rgba(63, 127, 191, 0.52)',
+    width: 100,
+    height: 100
+  },
+  textTwoStyle: {
+    backgroundColor: 'rgba(127, 191, 63, 0.52)',
+    width: 100,
+    height: 100,
+    //top: 100
+    alignSelf: 'flex-end'
+  },
+  textThreeStyle: {
+    backgroundColor: 'rrgba(191, 63, 63, 0.52)',
+    width: 100,
+    height: 100
   }
 })
 
@@ -29,4 +42,17 @@ export default BoxScreen
 
 // Android: leaves text as is.
 
-// 
+
+
+//...StyleSheet.absoluteFillObject // Same as the bottom 5 properties
+// position: 'absolute',
+// top: 0,
+// bottom: 0,
+// left: 0,
+// right: 0
+
+
+// Order of Layout Systems: 
+// 1. Box Object Model 
+// 2. Position
+// 3. Flex Box
